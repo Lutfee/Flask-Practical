@@ -8,7 +8,9 @@ pipeline {
 		sh "apt-get install docker-compose-plugin"
 		sh "docker compose up"
                 sh "docker build ."
-		sh "docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest"	
+		sh "docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:latest"
+		sh "docker network connect jenkins sonarqube"
+		sh "docker network inspect jenkins"
         	}
         }      
         stage('OWASP DependencyCheck') {
