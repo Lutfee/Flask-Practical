@@ -20,7 +20,7 @@ def index():
     form = LoginForm()
     if form.validate_on_submit():
         print(form.password.data)
-        with open("top-1000.txt","r") as f:
+        with open("tt.txt","r") as f:
             content = f.read()
             if form.password.data in content:
                 print("known password")
