@@ -4,8 +4,8 @@ pipeline {
 
         stage('Deploy'){
         	steps {
-		sh "sudo apt-get update"
-		sh "sudo apt-get install docker-compose-plugin"
+		sh "apt-get update"
+		sh "apt-get install docker-compose-plugin"
 		sh "docker compose up"
                 sh "docker build ."
 		sh "docker pull sonarqube"
