@@ -1,27 +1,6 @@
 version: '3'
 
 services:
-  jenkins:
-    container_name: jenkins
-    build: ./jenkins
-    ports:
-      - '8080:8080'
-      - '443:8443'
-      - '50000:50000'
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./jenkins_home:/var/jenkins_home
-  
-  webapp:
-    container_name: webapp
-    build: https://github.com/Lutfee/Flask-Practical.git
-    ports:
-      - "5000"
-  repo-image:
-    build: https://github.com/Lutfee/Flask-Practical.git
-    image: repo-image
-    ports:
-      - 8000
   SonarQube:
     image: sonarqube
     depends_on:
@@ -50,5 +29,3 @@ volumes:
   SonarQube_logs:
   postgresql:
   postgresql_data:
-  jenkins_data:
-    driver: local
