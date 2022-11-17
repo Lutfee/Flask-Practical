@@ -4,7 +4,7 @@ pipeline {
 
         stage('Deploy'){
         	steps {
-                sh "docker build flask ."
+                sh "docker build ."
         	}
         }      
         stage('OWASP DependencyCheck') {
