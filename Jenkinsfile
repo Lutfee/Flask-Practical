@@ -7,7 +7,8 @@ pipeline {
 		sh "apt-get update"
 		sh "apt-get install docker-compose-plugin"
                 sh "docker build -t flask-app ."
-		sh "docker run  --name flask flask-app"
+		sh "docker run  --name flask-app --publish 8000:8000 flask-app"
+			
 	
         	}
         }      
